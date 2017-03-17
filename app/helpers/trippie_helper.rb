@@ -1,0 +1,2 @@
+module TrippieHelper
+end

@@ -1,0 +1,12 @@
+<div class="setumei">
+ここに説明を入れる
+</div>
+<%= image_tag 'japan.jpg' %>
+<div class="contents row" >
+    <% @posts.each do |post| %>
+      <div class="content_post" style="background-image: url(<%= post.image %>);">
+        <%= simple_format(post.text) %>
+        <%= post.local %>
+      </div>
+    <% end %>
+  </div>
