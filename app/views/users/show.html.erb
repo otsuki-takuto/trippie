@@ -1,0 +1,45 @@
+  <div class="contents row" >
+      <a href="">
+        <div class="user_image"><%= image_tag  current_user.avatar %></div>
+        <h2><%=  current_user.nickname %> <span>さんの行った所一覧</span></h2>
+      </a>
+    <% @post.each do |post| %>
+  <div class="content_post" style="background-image: url(<%= post.image %>);">
+    <% if user_signed_in? && current_user.id == post.user_id %>
+    <div class="more">
+          <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+           <li>
+              <%= link_to '編集', "/trippie/#{post.id}/edit", method: :get %>
+          </li>
+          <li>
+              <%= link_to '削除', "/trippie/#{post.id}", method: :delete %>
+          </li>
+        </ul>
+      </div>
+      <% end %>
+      <%= simple_format (post.text) %>
+      <%= post.local %></<br>
+      <%= post.user.nickname%>
+        </div>
+    <% end %>
+     <!-- <div class="container"> 
+    <% if current_user %>
+      <%= form_tag("/trippie/#{@post.ids}/comments/", method: :post) do %>
+        <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
+        <input type="submit" value="SENT">
+      <% end %>
+    <% end %>
+    <div class="comments">
+      <h4>＜コメント一覧＞</h4>
+      <% if @comments %>
+        <% @comments.each do |comment| %>
+          <p>
+            <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+            <%= comment.text %>
+          </p>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  </div> -->

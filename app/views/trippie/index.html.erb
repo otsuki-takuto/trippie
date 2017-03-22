@@ -1,12 +1,40 @@
 <div class="setumei">
-ここに説明を入れる
+ここに説明
 </div>
+<div class="japan">
 <%= image_tag 'japan.jpg' %>
+</div>
+<div class="text">
+  <p>みんなの投稿</p>
+</div>
 <div class="contents row" >
     <% @posts.each do |post| %>
       <div class="content_post" style="background-image: url(<%= post.image %>);">
         <%= simple_format(post.text) %>
+        <span class="name">
+          
+             <span>投稿者</span><%= post.user.nickname %>
+       
+       </span>
         <%= post.local %>
+    <div class="more">
+          <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+      <li>
+        <%= link_to "詳細", "/trippie/#{post.id}", method: :get %>
+      </li>
+      <% if user_signed_in? && current_user.id == post.user_id %>
+        <li>
+          <%= link_to '編集', "/trippie/#{post.id}/edit", method: :get %>
+        </li>
+        <li>
+          <%= link_to '削除', "/trippie/#{post.id}", method: :delete %>
+        </li>
+      <% end %>
+        </ul>
       </div>
+</div>
     <% end %>
+    <%= paginate(@posts) %>
   </div>
+
