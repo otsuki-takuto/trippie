@@ -1,7 +1,7 @@
   <div class="contents row" >
       <a href="">
+      <h2><%=  current_user.nickname %> <span>さんの行った所一覧</span></h2>
         <div class="user_image"><%= image_tag  current_user.avatar %></div>
-        <h2><%=  current_user.nickname %> <span>さんの行った所一覧</span></h2>
       </a>
     <% @post.each do |post| %>
   <div class="content_post" style="background-image: url(<%= post.image %>);">
