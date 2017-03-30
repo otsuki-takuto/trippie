@@ -51,3 +51,5 @@ end
  gem 'devise'
  gem 'kaminari'
  gem 'paperclip'
+ gem 'carrierwave'
+ gem 'fog'

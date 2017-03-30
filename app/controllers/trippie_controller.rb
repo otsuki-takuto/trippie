@@ -10,10 +10,12 @@ class TrippieController < ApplicationController
 
 
   def new
+    # @post = Post.new
   end
 
   def create
-   post = Post.create(image: params[:image], local: params[:local], text: params[:text], user_id: current_user.id)
+    # @post = Post.(post_params)
+   post = Post.create(post_params)
   end
 
   def show
@@ -41,9 +43,13 @@ class TrippieController < ApplicationController
     end
 
   private
-    def post_params
-      params.permit(:name, :local, :text)
-    end
+    # def post_params
+    #   params.permit(:name, :local, :text,)
+    # end
+
+  def post_params
+    params.permit(:name, :local, :text, :image).merge(user_id: current_user.id)
+  end
 
     def move_to_index
       redirect_to action: :index unless user_signed_in?

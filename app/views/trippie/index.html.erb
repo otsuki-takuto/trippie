@@ -1,6 +1,6 @@
 <div class="setumei">
 <h1>TRIP × HIPPIE</h1>
-<h12>自由気ままに旅をして</br>自由気ままに投稿しよう！</h12></br>旅を愛し平和を愛し自由を愛す</br>そんな人たちのSNS
+<h24>自由気ままに旅をして</br>自由気ままに投稿しよう！</h24><!-- </br>旅を愛し平和を愛し自由を愛す</br>そんな人たちのSNS -->
 </div>
 <div class="japan">
 <%= image_tag 'japan.jpg' %>
@@ -13,9 +13,7 @@
       <div class="content_post" style="background-image: url(<%= post.image %>);">
         <%= simple_format(post.text) %>
         <span class="name">
-          
              <span>投稿者</span><%= post.user.nickname %>
-       
        </span>
         <%= post.local %>
     <div class="more">
@@ -37,5 +35,9 @@
 </div>
     <% end %>
     <%= paginate(@posts) %>
+  </div>
+
+  <div class="takuto">
+    CreateBy<a href="https://otsuki-takuto.github.io/#container2">OtsukiTakuto</a>
   </div>
 

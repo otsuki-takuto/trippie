@@ -13,6 +13,7 @@
       </ul>
     </div>
     <% end %>
+    <%= @post.local %>
     <%= simple_format(@post.text) %>
     <span class="name">
       <a href="/users/<%= @post.user.id %>">
@@ -20,7 +21,7 @@
       </a>
     </span>
   </div>
-  <div class="container"> 
+  <div class="container">
     <% if current_user %>
       <%= form_tag("/trippie/#{@post.id}/comments", method: :post) do %>
         <textarea cols="30" name="text" placeholder="コメントする" rows="2"></textarea>
@@ -28,7 +29,7 @@
       <% end %>
     <% end %>
   </div>
-  <div class="comments">   
+  <div class="comments">
       <h4>＜コメント一覧＞</h4>
       <% if @comments %>
         <% @comments.each do |comment| %>
