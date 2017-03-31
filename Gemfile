@@ -53,3 +53,7 @@ end
  gem 'paperclip'
  gem 'carrierwave'
  gem 'fog'
+
+ group :production do
+  gem 'rails_12factor'
+end
